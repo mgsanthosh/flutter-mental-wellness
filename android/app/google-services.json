@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "498414042729",
+    "firebase_url": "https://mental-wellness-b61b8-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "mental-wellness-b61b8",
+    "storage_bucket": "mental-wellness-b61b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:498414042729:android:04af829a7296a41577ecf8",
+        "android_client_info": {
+          "package_name": "com.example.flutter_mental_wellness"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXAScybQWSiF-xdpcGuaVkEMTHIpJC0SM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:498414042729:android:50403e6ea0dc8ddf77ecf8",
+        "android_client_info": {
+          "package_name": "com.mental.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXAScybQWSiF-xdpcGuaVkEMTHIpJC0SM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
