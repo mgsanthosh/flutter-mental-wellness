@@ -107,69 +107,75 @@ class _CounsellorHomePageState extends State<CounsellorHomePage> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          BlurryContainer(
-            blur: 8,
-            height: 320,
-            elevation: 6,
-            width: double.infinity,
-            child: Profileinfo(isCounsellor: true),
-          ),
-          Text("Hi Counselor", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-          Text("Please find the Chat Requests Below", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, fontStyle: FontStyle.italic),),
-          ListView.builder(
-            itemCount: _chats.length,
-            shrinkWrap: true,
-            itemBuilder: (context, index) {
-              final chat = _chats[index];
-              return Card(
-                margin: EdgeInsets.all(16.0),
-                elevation: 10,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Row(
-                    children: [
-                      CircleAvatar(
-                        radius: 30,
-                        backgroundImage: NetworkImage(chat['imageUrl']),
-                      ),
-                      SizedBox(width: 16.0),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "${chat['firstName']} ${chat['lastName']}",
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+            BlurryContainer(
+              blur: 8,
+              height: 320,
+              elevation: 6,
+              width: double.infinity,
+              child: Profileinfo(isCounsellor: true),
+            ),
+            Text("Hi Counselor", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+            Text("Please find the Chat Requests Below", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, fontStyle: FontStyle.italic),),
+            
+            SingleChildScrollView(
+              child: ListView.builder(
+                itemCount: _chats.length,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  final chat = _chats[index];
+                  return Card(
+                    margin: EdgeInsets.all(16.0),
+                    elevation: 10,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 30,
+                            backgroundImage: NetworkImage(chat['imageUrl']),
+                          ),
+                          SizedBox(width: 16.0),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "${chat['firstName']} ${chat['lastName']}",
+                                  style: TextStyle(
+                                      fontSize: 20, fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(height: 10),
+                                Text("Age: ${chat['age']}"),
+                                SizedBox(height: 5),
+                                Text("Phone: ${chat['phoneNumber']}"),
+                                SizedBox(height: 5),
+                                Text("Email: ${chat['email']}"),
+                              ],
                             ),
-                            SizedBox(height: 10),
-                            Text("Age: ${chat['age']}"),
-                            SizedBox(height: 5),
-                            Text("Phone: ${chat['phoneNumber']}"),
-                            SizedBox(height: 5),
-                            Text("Email: ${chat['email']}"),
-                          ],
-                        ),
+                          ),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: ElevatedButton(
+                              onPressed: () => _startChat(chat),
+                              child: Text("Chat"),
+                            ),
+                          ),
+                        ],
                       ),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: ElevatedButton(
-                          onPressed: () => _startChat(chat),
-                          child: Text("Chat"),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            },
-          )
-        ],
+                    ),
+                  );
+                },
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
